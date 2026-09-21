@@ -23,6 +23,9 @@
 6. Exploring this website : https://www.freecodecamp.org/news/web-security-fuzz-web-applications-using-ffuf/, It gaves me an idea, to enumerate directories with extensions with the flag `-e`. Then, I found many results such as login.php, forbidden.php, portal.php. So I navigated on login.php and put credentials that have seen before. 
 
 7. An OS Command Injection in the website, so I could navigate in the linux system. 
+	I inspects source code of the os command injection page and this was written : 
+		 `YUdGMlpTQjViM1VnYUdWaGNtUWdiMllnWVNCeVlXSmlhWFFnYUc5c1pTQS9JRmx2ZFNCemFHOTFiR1FnYkc5dmF5QnBkQ0IxY0N3Z2VXOTFJR3AxYzNRZ1ptVnNiQ0JwYmlCdmJtVmNJUT09` 
+	I tried to decode it with cyberchef and it says to me that it was a rabbit hole and nothing relevant with it ...
 
 8. With commands injected to find an user.txt or creds. I found that my user can executes all commands as the user "titouan" without passwords. ![](images_fuzz/seePerms.png)
 
