@@ -21,9 +21,8 @@ I try to connect as anonymous on ftp service, blank password on ssh etc to test 
 several path get 403 status that mean I can't access , but assets is really attractive, so I go to check assets available on this page.
 - I checked the useless 5min video.
 - and in the style.css , a commentary says that :  
-	`/* Nice to see someone checking the stylesheets.
-     Take a look at the page: /l3_B4n4N13r_D3s_M0nT4gN3s.php
-	*/
+	`/* Nice to see someone checking the stylesheets
+    `` Take a look at the page: /l3_B4n4N13r_D3s_M0nT4gN3s.php/`
 
 
 2. In going to this page , It redirects me to the 5min youtube video. But in doing a curl of this page : 
