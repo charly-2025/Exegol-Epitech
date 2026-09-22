@@ -30,9 +30,40 @@ Archive:  ../../root/Downloads/stats.zip
 ```
 	libreoffice --calc ClimbersStats.xlsx.gpg
 ```
+But when I open libre office calc with the file , the recovery fail and I can't open it. So I tried to find something about gpg extension.
+And this website helped me : https://www.ezeelogin.com/kb/article/import-a-gpg-private-key-and-encrypt-decrypt-messages-using-gpg-807.html
+
+I knew with `ls -a` that I also have a ".hiddenkey" .
+
+So thanks to the website, I tried to decrypt the gpg file with the hidden key.
+
+```
+~ gpg --import .hidden-key                  
+gpg: key CA39F36CD0B69BF0: "Adam Ondra <adam@climbing.thm>" not changed
+gpg: key CA39F36CD0B69BF0: secret key imported
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg:       secret keys read: 1
+gpg:  secret keys unchanged: 1
+
+~ gpg --output stat.xlsx --decrypt ClimbersStats.xlsx.gpg
+
+gpg: encrypted with 3072-bit RSA key, ID 78390708D04F7F4E, created 2021-12-07
+      "Adam Ondra <adam@climbing.thm>"
+gpg: Signature made Tue 07 Dec 2021 04:46:54 PM CET
+gpg:                using RSA key 8D50652C1742742DD9E61321CA39F36CD0B69BF0
+gpg: Good signature from "Adam Ondra <adam@climbing.thm>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 8D50 652C 1742 742D D9E6  1321 CA39 F36C D0B6 9BF0
+
+~ libreoffice --calc stat.xlsx
+
+```
 
 It shows me a table with username, password etc. 
-So I tried to connect to ssh testing with those credentials. 
+
+6. So I tried to connect to ssh testing with those credentials. 
 
 ```
 ssh janja@10.10.0.65
