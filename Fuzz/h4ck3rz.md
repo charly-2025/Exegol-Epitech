@@ -17,6 +17,7 @@
 
 3. Then, I used gobuster and ffuf (for the same reason but ffuf was faster) to enumerate website directories. 
 4. I download all files on assets , and tried to extract hidden datas (png , font files etc.), with zsteg, stegsolve, strings etc but nothing relevant . 
+
 5. The result of ffuf with big.txt wordlist, shows me a path `/robots.txt`. "User-agent: *
 	Disallow: /1337_53CR37_l41r" , the path `/1337_53CR37_l41r` prints me a page with a password on it. So we have an username and a password. I tried to connect on ssh port but I creds were wrong. 
 
