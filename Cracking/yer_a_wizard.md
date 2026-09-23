@@ -1,4 +1,4 @@
-![[yaw13.png]]![[yaw13.png]]---
+---
 
 ### Challenge propertie(s) :
 - ##### Difficulty : easy
