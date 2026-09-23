@@ -29,29 +29,31 @@ And then, I could go on the website.
 	`steghide extract -sf ../root/Downloads/[jpg image]` to extract interesting hidden datas but they all asked a passphrase that I hadn't. And use `zsteg [png image]` to see hidden data too. 
 	But nothing exploitable.
 
-
-5. In inspecting the website code with curl or dev tools, I found a commentary in the code of the landing page.
+```
+cd home/user/user.txt
+```
+4. In inspecting the website code with curl or dev tools, I found a commentary in the code of the landing page.
 
 	 <!--Note to self - Recover your password at /recovery.php! -->
 	<!--VGhlIGJhY2t1cCBwYXNzd2QgaXMgaGVyZSwgdXNlIGl0IGluIGxhc3QgcmVzb3J0LCBpbiBjYXNlIHlvdSBuZWVkIGEga2V5IG9yIHNvbWV0aGluZzogNVVjaF80X0czbjF1NV9jUjM0VG9S -->
 
    in going at recovery address, it shows me username and password input, I tried to recover root, admin, with basic passwords and then to connect on ssh but nothing worked.
 
-6. I took the long string of character and put it on https://dencode.com/, and it decoded me this : `The backup passwd is here, use it in last resort, in case you need a key or something: 5Uch_4_G3n1u5_cR34ToR` . So I instantly tried to recover on recovery address, with root, admin username and the key decoded. But nothing worked too so I kept that key beside.
+5. I took the long string of character and put it on https://dencode.com/, and it decoded me this : `The backup passwd is here, use it in last resort, in case you need a key or something: 5Uch_4_G3n1u5_cR34ToR` . So I instantly tried to recover on recovery address, with root, admin username and the key decoded. But nothing worked too so I kept that key beside.
 
-7. in fetching source code of recovery address with `curl 10.10.0.13:22/recovery.php` 
+6. in fetching source code of recovery address with `curl 10.10.0.13:22/recovery.php` 
    I found a new long string of character, I put it on dencode website but it decoded me nothing. 
    I tried on cyberchef website with magic option, but nothing relevant too. 
 
-8. In searching something I can do that I could forget, and something I can do with the password `5Uch_4_G3n1u5_cR34ToR` . So i tried to steghide all jpg imagesd with the passphrase. 
+7. In searching something I can do that I could forget, and something I can do with the password `5Uch_4_G3n1u5_cR34ToR` . So i tried to steghide all jpg imagesd with the passphrase. 
 	And in cube_gold.jpg with the passphrase, it writes me a passwd file in my workspace.
 	`cat passwd` gave me an username and a password. So I instantly tried to go on recovery.php and put these creds into inputs. 
 
-9. It redirects me to a page `my_very_secret_dir/index.php` and it is written "GET me a cmd and we'll talk!" . With a little bit knowledge, I know that it can be an OS command injection that in the url i can put `?cmd=` and bash command and it will execute these commands. So i tried to navigate intos folders with `ls ../..` , `cat` etc...  
+8. It redirects me to a page `my_very_secret_dir/index.php` and it is written "GET me a cmd and we'll talk!" . With a little bit knowledge, I know that it can be an OS command injection that in the url i can put `?cmd=` and bash command and it will execute these commands. So i tried to navigate intos folders with `ls ../..` , `cat` etc...  
 
-10. Checking home files with `ls+../../../../home/` it shows me a file named uwe_passwords. So I print the content of the file and gave me a list of passwords.
+9. Checking home files with `ls+../../../../home/` it shows me a file named uwe_passwords. So I print the content of the file and gave me a list of passwords.
 
-11. I put all these password into a text file and run a brute force on ssh. 
+10. I put all these password into a text file and run a brute force on ssh. 
     `hydra -l uwe -P mdp.txt ssh://10.10.0.28 -s 80 -t 4`
 	Then , once the password is found, I connect to ssh `ssh -p 80 uwe@10.10.0.8` and the user.txt is here.
 
