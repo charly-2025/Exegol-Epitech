@@ -13,7 +13,7 @@
 1. A basic nmap scan on the target IP.
 	-> `nmap 10.10.0.4`
 
-	![nmap scan result](bat1.png)
+	![[images_injection/bat1.png]]
 
 
 2. I try to connect to FTP anonymously, a common misconfiguration on FTP servers.
@@ -86,7 +86,7 @@
 1. Checking sudo rights as bruce.
 	-> `sudo -l`
 
-	![sudo -l result](bat2.png)
+	![[images_injection/bat2.png]]
 
 	Two key facts: bruce can run one specific script as root without a password, **and** the `PYTHONPATH` environment variable is preserved by sudo (`env_keep+=PYTHONPATH`) instead of being stripped, which it normally would be for security reasons.
 
@@ -112,6 +112,6 @@
 
 
 5. Reading the root flag.
-
-![sudo -l result](bat3.png)
 	Root flag obtained.
+
+![[images_injection/bat3.png]]
