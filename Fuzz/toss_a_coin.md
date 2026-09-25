@@ -14,7 +14,7 @@
 At img path , two images are here , I downloaded it to check to steganalize them . But nothing relevant found. 
 The path 't' interested me, I navigated on it , and a sentence was written , something about the lyrics of the song "toss a coin to your witcher". I thought that I could get credentials in the lyrics. 
 
-3. In the website path http://10.10.0.11/t/ , I added a o and the same page was shown etc , up to get http://10.10.0.11/t/o/s/s, but still the same page, I kept writing the lyrics in the page , adding a 'a' , but it gave me an 404 error, given that there is a space in the lyrics , I tried to put a %20, but 404 again. 
+3. In the website url path http://10.10.0.11/t/ , I added a o and the same page was shown etc , up to get http://10.10.0.11/t/o/s/s, but still the same page, I kept writing the lyrics in the page , adding a 'a' , but it gave me an 404 error, given that there is a space in the lyrics , I tried to put a %20, but 404 again. 
 
 4. So to automatically enumerate the lyric in the url path. I again used ffuf with this command -> `ffuf -u http://10.10.0.11/t/o/s/s/FUZZ -w <(printf '%s\n' {a..z} {A..Z} {0..9} "'" "-" "_")` and I found that spaces are written with a ' _ ' . 
 
