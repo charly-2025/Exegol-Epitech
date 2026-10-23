@@ -45,7 +45,3 @@ and screenshots.
 All challenges were solved on intentionally vulnerable machines provided for
 training. These techniques must only be used on systems you are authorized to
 test.
-
----
-
-More of my work on my [portfolio](https://charly-2025.github.io/myPortfolio/).
