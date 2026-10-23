@@ -18,11 +18,6 @@ A series of offensive security challenges solved from the **Exegol** environment
 
 `Exegol` · `nmap` · `ffuf` · `John the Ripper / Hashcat` · `gpg` · `Linux`
 
-## Team
-
-- Fourchet
-- Charly Richard-Fromont
-
 ---
 
 More of my work on my [portfolio](https://charly-2025.github.io/myPortfolio/).
